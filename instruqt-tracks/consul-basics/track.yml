@@ -1,10 +1,11 @@
-slug: consul-basics
-id: flhasumrfmgq
+slug: consul-basics-fr
+id: mlpjmir0iu0c
 type: track
-title: Consul Basics
-teaser: Apprenez également à utiliser la découverte de services la plus populaire au monde.
+title: Consul Basics (French)
+teaser: Apprenez également à utiliser la découverte de services la plus populaire
+  au monde.
 description: |-
-Ceci est un cours accéléré sur les opérations du consul. Vous accomplirez ce qui suit :
+  Ceci est un cours accéléré sur les opérations du consul. Vous accomplirez ce qui suit :
 
    * Configurer un cluster Consul à 3 nœuds
    * Utilisez l'interface utilisateur Consul
@@ -14,7 +15,7 @@ Ceci est un cours accéléré sur les opérations du consul. Vous accomplirez ce
    * Testez la haute disponibilité de Consul
    * Ajouter une sécurité de base avec les ACL de consul
 
-Une fois que vous avez appris ces principes fondamentaux, vous pouvez passer à des sujets intermédiaires et avancés tels que Service Discovery et Consul Connect.
+  Une fois que vous avez appris ces principes fondamentaux, vous pouvez passer à des sujets intermédiaires et avancés tels que Service Discovery et Consul Connect.
 icon: https://storage.googleapis.com/instruqt-frontend/assets/hashicorp/tracks/consul.png
 tags:
 - introduction to consul
@@ -24,13 +25,14 @@ tags:
 owner: hashicorp
 developers:
 - lance@hashicorp.com
+- jona@hashicorp.com
 private: true
 published: true
 show_timer: true
 skipping_enabled: true
 challenges:
 - slug: 01-meet-consul
-  id: bgfx8nbzqnjv
+  id: mllkdhsh0tkp
   type: challenge
   title: Get to Know Consul
   teaser: My First Consul cluster
@@ -38,20 +40,19 @@ challenges:
   - type: text
     contents: "\U0001F578️Vous êtes sur le point d'entrer dans la Zone Consul\U0001F47D"
   assignment: |
- Bienvenue sur les bases du consul ! Dans cet atelier, vous allez démarrer un cluster Consul à trois nœuds.
+    Bienvenue sur les bases du consul ! Dans cet atelier, vous allez démarrer un cluster Consul à trois nœuds.
 
-     Une fois que les trois nœuds ont rejoint le cluster de serveurs, vous devriez voir l'interface utilisateur Consul devenir saine.
+    Une fois que les trois nœuds ont rejoint le cluster de serveurs, vous devriez voir l'interface utilisateur Consul devenir saine.
 
-     Démarrez le processus du serveur Consul sur chaque nœud de cluster avec la commande suivante.
+    Démarrez le processus du serveur Consul sur chaque nœud de cluster avec la commande suivante.
     ```
     /bin/start_consul.sh
     ```
+    Vous pouvez simplement le copier et le coller dans le terminal pour chaque serveur. Vous pouvez également afficher la configuration de l'un des serveurs Consul dans l'éditeur de code. Vous n'avez pas besoin de comprendre toutes les options, notez simplement que nous démarrons Consul en mode `serveur`. (Ceci est à la ligne 8 dans le fichier de configuration.)
 
-Vous pouvez simplement le copier et le coller dans le terminal pour chaque serveur. Vous pouvez également afficher la configuration de l'un des serveurs Consul dans l'éditeur de code. Vous n'avez pas besoin de comprendre toutes les options, notez simplement que nous démarrons Consul en mode `serveur`. (Ceci est à la ligne 8 dans le fichier de configuration.)
+    Essayez de recharger l'interface utilisateur après le démarrage de chaque serveur.
 
-Essayez de recharger l'interface utilisateur après le démarrage de chaque serveur.
-
-Notre script de démarrage est simple et exécute Consul en arrière-plan. En production, cela serait démonisé ou géré par un orchestrateur.
+    Notre script de démarrage est simple et exécute Consul en arrière-plan. En production, cela serait démonisé ou géré par un orchestrateur.
 
     Une fois que vous avez un cluster sain, l'interface utilisateur Consul sera disponible. Cliquez sur l'onglet Nodes dans l'interface utilisateur Consul pour voir vos trois serveurs. Le leader est marqué d'une étoile.⭐
   tabs:
@@ -75,7 +76,7 @@ Notre script de démarrage est simple et exécute Consul en arrière-plan. En pr
   difficulty: basic
   timelimit: 600
 - slug: 02-consul-cli
-  id: ur5wsyiizlac
+  id: jlte9gbs3lnk
   type: challenge
   title: Consul CLI
   teaser: Take the Consul CLI for a spin
@@ -85,13 +86,13 @@ Notre script de démarrage est simple et exécute Consul en arrière-plan. En pr
       Consul est distribué sous la forme d'un fichier binaire unique, ce qui signifie qu'il peut agir à la fois comme serveur ou comme client en ligne de commande..
       Vous pouvez en savoir plus sur la liste complète des commandes [here](https://www.consul.io/docs/commands/index.html).
   assignment: |-
-Le binaire Consul peut agir comme un serveur, un client ou un outil de ligne de commande. Nous avons préconfiguré les paramètres de ligne de commande pour vous avec la variable d'environnement `CONSUL_HTTP_ADDR`.
+    Le binaire Consul peut agir comme un serveur, un client ou un outil de ligne de commande. Nous avons préconfiguré les paramètres de ligne de commande pour vous avec la variable d'environnement `CONSUL_HTTP_ADDR`.
 
-     Vous pouvez exécuter la commande suivante pour voir cette valeur : `echo $CONSUL_HTTP_ADDR`. Il s'agit du point de terminaison du serveur d'API pour Consul. L'outil de ligne de commande Consul communique avec l'API sur 127.0.0.1 ou localhost.
+    Vous pouvez exécuter la commande suivante pour voir cette valeur : `echo $CONSUL_HTTP_ADDR`. Il s'agit du point de terminaison du serveur d'API pour Consul. L'outil de ligne de commande Consul communique avec l'API sur 127.0.0.1 ou localhost.
 
-     Toutes les interactions avec Consul, que ce soit via l'interface graphique ou la ligne de commande, ont toujours un appel d'API sous-jacent.
+    Toutes les interactions avec Consul, que ce soit via l'interface graphique ou la ligne de commande, ont toujours un appel d'API sous-jacent.
 
-     Essayez ces commandes et affichez les résultats. Vous pouvez exécuter les commandes sur n'importe quel serveur : <br>
+    Essayez ces commandes et affichez les résultats. Vous pouvez exécuter les commandes sur n'importe quel serveur : <br>
     * Get Help:
       - `consul help` or `consul subcommand -help`
     * View Logs:
@@ -121,7 +122,7 @@ Le binaire Consul peut agir comme un serveur, un client ou un outil de ligne de 
   difficulty: basic
   timelimit: 600
 - slug: 03-consul-api
-  id: 6mh7z4axuiix
+  id: q5q2flkw0cky
   type: challenge
   title: Consul API
   teaser: Use the Consul API
@@ -129,9 +130,10 @@ Le binaire Consul peut agir comme un serveur, un client ou un outil de ligne de 
   - type: text
     contents: |-
       Consul dispose d'une API RESTful que vous pouvez utiliser pour interagir avec Consul.
-     Vous pouvez voir la documentation de l'API Consul [here](https://www.consul.io/api/index.html).
+      Vous pouvez voir la documentation de l'API Consul [here](https://www.consul.io/api/index.html).
+  assignment: |2-
 
-  Essayons quelques-unes des mêmes commandes de notre dernière mission avec l'API. Nous utiliserons la commande Unix `curl` pour interagir avec l'API. Copiez et collez chaque commande dans le terminal et affichez la sortie.
+    Essayons quelques-unes des mêmes commandes de notre dernière mission avec l'API. Nous utiliserons la commande Unix `curl` pour interagir avec l'API. Copiez et collez chaque commande dans le terminal et affichez la sortie.
 
     * Logs:
       - `curl -s http://127.0.0.1:8500/v1/agent/monitor` (CTRL-C to escape)
@@ -158,28 +160,28 @@ Le binaire Consul peut agir comme un serveur, un client ou un outil de ligne de 
   difficulty: basic
   timelimit: 600
 - slug: 04-consul-agents
-  id: unxdsxuwburk
+  id: 7iwuogwetxfr
   type: challenge
   title: Ajouter un agent
   teaser: Ajoutez un agent client Consul à votre cluster Consul.
   notes:
   - type: text
     contents: |-
- L'agent Consul s'exécute sur chaque nœud où vous souhaitez suivre les services. Un nœud peut être un serveur physique, une machine virtuelle ou un conteneur.
+      L'agent Consul s'exécute sur chaque nœud où vous souhaitez suivre les services. Un nœud peut être un serveur physique, une machine virtuelle ou un conteneur.
 
-       L'agent suit les informations sur le nœud et ses services associés. Les agents rapportent ces informations aux serveurs Consul, où nous avons une vue centrale de l'état des nœuds et des services.
-   affectation : |-
-     Nous avons ajouté un `App Server` à votre environnement de laboratoire. Le serveur d'applications est configuré pour s'exécuter en mode "client".
+      L'agent suit les informations sur le nœud et ses services associés. Les agents rapportent ces informations aux serveurs Consul, où nous avons une vue centrale de l'état des nœuds et des services.
+  assignment: |-
+    Nous avons ajouté un `App Server` à votre environnement de laboratoire. Le serveur d'applications est configuré pour s'exécuter en mode "client".
 
-     Regardez dans l'onglet "Configuration de l'application". Notez que l'indicateur *server* est défini sur false.
+    Regardez dans l'onglet "Configuration de l'application". Notez que l'indicateur *server* est défini sur false.
 
-     Exécutez le script de démarrage Consul dans l'onglet "App" et joignez cet agent au cluster.
+    Exécutez le script de démarrage Consul dans l'onglet "App" et joignez cet agent au cluster.
 
     ```
     /bin/start_consul.sh
     ```
 
-Consultez la liste des nœuds dans l'interface utilisateur Consul ou exécutez la commande "consul members" pour vérifier que le serveur d'applications a rejoint le cluster.
+    Consultez la liste des nœuds dans l'interface utilisateur Consul ou exécutez la commande "consul members" pour vérifier que le serveur d'applications a rejoint le cluster.
   tabs:
   - title: App
     type: terminal
@@ -195,7 +197,7 @@ Consultez la liste des nœuds dans l'interface utilisateur Consul ou exécutez l
   difficulty: basic
   timelimit: 600
 - slug: 05-consul-ha
-  id: twklmkkkdxlb
+  id: 4uih7i3gocww
   type: challenge
   title: Consul High Availability
   teaser: Test Consul's High Availability Capabilities
@@ -204,13 +206,14 @@ Consultez la liste des nœuds dans l'interface utilisateur Consul ou exécutez l
     contents: |-
       Les serveurs Consul travaillent ensemble pour élire un leader unique, qui devient la principale source de vérité pour le cluster. Toutes les mises à jour sont transmises au responsable du cluster. Si le leader tombe en panne, l'un des autres serveurs peut immédiatement prendre sa place.
 
-Pour garantir une haute disponibilité au sein du système, nous recommandons de déployer Consul avec 3 ou 5 nœuds de serveur.  - type: text
+      Pour garantir une haute disponibilité au sein du système, nous recommandons de déployer Consul avec 3 ou 5 nœuds de serveur.  - type: text
+  - type: text
     contents: |-
-Le quorum requiert au moins (n+1)/2 membres. Vous avez besoin d'un quorum pour un cluster sain. <br>
+      Le quorum requiert au moins (n+1)/2 membres. Vous avez besoin d'un quorum pour un cluster sain. <br>
 
       Un cluster à trois nœuds peut tolérer la perte d'un seul membre.
       Un cluster à cinq nœuds peut tolérer la perte de deux membres et continuer à fonctionner.
-  affectation : |-
+  assignment: |-
     Nous avons 3 serveurs dans notre environnement de lab. Cela signifie que nous pouvons en perdre un
     serveur et avoir toujours un cluster sain. Vous pouvez en savoir plus sur le Consensus
     Protocole [ici](https://www.consul.io/docs/internals/consensus.html). <br>
@@ -256,7 +259,7 @@ Le quorum requiert au moins (n+1)/2 membres. Vous avez besoin d'un quorum pour u
 
     Maintenant tapez : `consul members`pour vérifier que l'API Consul répond à nouveau. <br>
 
-Ramenez votre troisième serveur avec le script de démarrage: <br>
+    Ramenez votre troisième serveur avec le script de démarrage: <br>
 
     ```
     /bin/start_consul.sh
@@ -285,37 +288,37 @@ Ramenez votre troisième serveur avec le script de démarrage: <br>
   difficulty: basic
   timelimit: 600
 - slug: 06-consul-acls
-  id: qlfdatwayytc
+  id: wxe1lkmz9jib
   type: challenge
   title: Consul ACLs
   teaser: Set up basic Consul ACLs
   notes:
   - type: text
     contents: |-
-Consul utilise des listes de contrôle d'accès (ACL) pour sécuriser l'interface utilisateur, l'API, la CLI, les communications de service et les communications d'agent.
-       Les ACL fonctionnent en regroupant les règles dans des stratégies, puis en associant une ou plusieurs stratégies à un jeton.
-       Les ACL sont impératives pour tous les environnements de production Consul. <br>
+      Consul utilise des listes de contrôle d'accès (ACL) pour sécuriser l'interface utilisateur, l'API, la CLI, les communications de service et les communications d'agent.
+      Les ACL fonctionnent en regroupant les règles dans des stratégies, puis en associant une ou plusieurs stratégies à un jeton.
+      Les ACL sont impératives pour tous les environnements de production Consul. <br>
 
-       Pour une explication détaillée du système ACL, consultez ce [guide](https://learn.hashicorp.com/consul/security-networking/production-acls). <br>
-     Ce défi prendra 1-2 minutes pour tourner. Veuillez patienter.
+      Pour une explication détaillée du système ACL, consultez ce [guide](https://learn.hashicorp.com/consul/security-networking/production-acls). <br>
+      Ce défi prendra 1-2 minutes pour tourner. Veuillez patienter.
   assignment: |-
- Appliquons quelques contrôles d'accès à notre cluster Consul pour empêcher tout accès non autorisé. Dans ce défi, vous utiliserez le jeton d'amorçage principal pour accéder à l'interface utilisateur et pour activer une stratégie pour votre serveur d'applications.
+    Appliquons quelques contrôles d'accès à notre cluster Consul pour empêcher tout accès non autorisé. Dans ce défi, vous utiliserez le jeton d'amorçage principal pour accéder à l'interface utilisateur et pour activer une stratégie pour votre serveur d'applications.
 
-     Vous remarquerez peut-être que vous n'êtes pas autorisé à accéder à l'interface utilisateur. Aucun des nœuds et des services ne s'affiche en raison d'une politique de *deny* par défaut.
+    Vous remarquerez peut-être que vous n'êtes pas autorisé à accéder à l'interface utilisateur. Aucun des nœuds et des services ne s'affiche en raison d'une politique de *deny* par défaut.
 
     Les ACL Consul sont activées en exécutant la commande `consul acl bootstrap`.
 
-   Nous avons déjà exécuté cette commande pour vous et enregistré la sortie dans le `ACL Bootstrap` code editor tab. Le jeton d'amorçage initial est le champ "SecretID" de cette sortie. Ce jeton spécial est utilisé pour configurer votre cluster et générer d'autres jetons. Copiez le jeton d'amorçage en le mettant en surbrillance et en appuyant sur CTRL-C. <br>
+    Nous avons déjà exécuté cette commande pour vous et enregistré la sortie dans le `ACL Bootstrap` code editor tab. Le jeton d'amorçage initial est le champ "SecretID" de cette sortie. Ce jeton spécial est utilisé pour configurer votre cluster et générer d'autres jetons. Copiez le jeton d'amorçage en le mettant en surbrillance et en appuyant sur CTRL-C. <br>
 
-Pour réactiver l'interface utilisateur, sélectionnez l'onglet Consul UI, cliquez sur l'onglet ACL et saisissez votre jeton dans le champ de texte.
+    Pour réactiver l'interface utilisateur, sélectionnez l'onglet Consul UI, cliquez sur l'onglet ACL et saisissez votre jeton dans le champ de texte.
 
-     Sur la ligne de commande, vous devez définir une variable d'environnement avec votre jeton. Exécutez la commande suivante dans l'onglet "Application ».
+    Sur la ligne de commande, vous devez définir une variable d'environnement avec votre jeton. Exécutez la commande suivante dans l'onglet "Application ».
 
     ```
     export CONSUL_HTTP_TOKEN=<your_token_here>
     ```
 
-   Cet atelier a une règle de refus par défaut, de sorte que votre nœud "App" consignera les erreurs ACL. Exécutez la commande suivante pour afficher les erreurs ACL (CTRL-C pour quitter) :
+    Cet atelier a une règle de refus par défaut, de sorte que votre nœud "App" consignera les erreurs ACL. Exécutez la commande suivante pour afficher les erreurs ACL (CTRL-C pour quitter) :
 
     ```
     consul monitor
@@ -325,9 +328,9 @@ Pour réactiver l'interface utilisateur, sélectionnez l'onglet Consul UI, cliqu
     2019/09/18 20:42:06 [WARN] agent: Coordinate update blocked by ACLs
     ```
 
-Le serveur d'application est actuellement bloqué pour effectuer des mises à jour ou des requêtes consulaires.
+    Le serveur d'application est actuellement bloqué pour effectuer des mises à jour ou des requêtes consulaires.
 
-Créons une stratégie pour permettre un accès limité à notre nœud d'application. Exécutez ces commandes à partir de l'onglet "App".
+    Créons une stratégie pour permettre un accès limité à notre nœud d'application. Exécutez ces commandes à partir de l'onglet "App".
 
     ```
     consul acl policy create \
@@ -335,19 +338,20 @@ Créons une stratégie pour permettre un accès limité à notre nœud d'applica
      -rules @/consul/policies/app.hcl
     ```
 
-Ensuite, créez un token pour cette stratégie.
+    Ensuite, créez un token pour cette stratégie.
     ```
     consul acl token create -description "app agent token" \
       -policy-name app
     ```
 
-Enfin, appliquez le token pour le rendre actif.
+    Enfin, appliquez le token pour le rendre actif.
     ```
     consul acl set-agent-token agent "<your_app_agent_token>"
     ```
 
-  Vous pouvez maintenant vérifier que les journaux de l'agent "App" n'enregistrent plus d'erreurs.
-     Bon travail!!! Vous venez d'obtenir votre premier agent Consul !  tabs:
+    Vous pouvez maintenant vérifier que les journaux de l'agent "App" n'enregistrent plus d'erreurs.
+    Bon travail!!! Vous venez d'obtenir votre premier agent Consul !
+  tabs:
   - title: Consul UI
     type: service
     hostname: consul-server-0
@@ -365,5 +369,4 @@ Enfin, appliquez le token pour le rendre actif.
     path: /tmp/bootstrap.txt
   difficulty: basic
   timelimit: 600
-checksum: "4620626064868703026"
-
+checksum: "13994489323958679046"
